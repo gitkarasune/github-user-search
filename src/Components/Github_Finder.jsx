@@ -21,22 +21,12 @@ const GithubFinder = () => {
     console.log(data)
   }
 
-  useEffect(()=> {
-    handleFetch();
-  },[])
-
-  const handleSubmit = () => {
-    handleFetch()
-  }
-
-
   return (
     <div>
-      <div className='mb-10'>
-        <input type="text" name='search-by-username' placeholder='Input Github Username' value={username} onChange={(e) => setUsername(e.target.value)} />
-      <button onClick={handleSubmit}>Search</button>
+      <div className='mb-10 flex justify-between p-2 gap-6 items-center'>
+        <input type="text" className='py-4 bg-black text-white rounded-full w-full' name='search-by-username' placeholder='Input Github Username' value={username} onChange={(e) => setUsername(e.target.value)} />
+        <button onClick={handleFetch} className='bg-black text-white rounded-full px-5 py-4'>Search</button>
       </div>
-
 
       { userData !== null ? <User user={userData} /> : null }
     </div>
